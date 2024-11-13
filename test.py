@@ -4,10 +4,7 @@ from datetime import datetime, timedelta
 
 from add_event import add_event
 
-client = Swarm()
-## IF NEEDED, you change surcharge the base_url with the OLLAMA_URL
-# client = Swarm(base_url="http://<your-ip>:11434")
-
+client = Swarm(base_url="http://localhost:11434")
 
 def transfer_to_agent_b():
     return agent_b
