@@ -1,33 +1,32 @@
 import json
 from datetime import datetime
+import pytz
 
 with open('database/database.json', 'r') as file:
     data = json.load(file)
 
-
-
-# Function to create ICS format date-time
-def format_datetime(date_str, time_str):
+# Function to create ICS format date-time with timezone
+def format_datetime(date_time_str, tz_str='America/Los_Angeles'):
     try:
-        dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %H:%M")
-        return dt.strftime("%Y%m%dT%H%M%S")
-    except ValueError:
+        local_tz = pytz.timezone(tz_str)
+        dt = datetime.strptime(date_time_str, "%Y-%m-%dT%H:%M:%S")
+        local_dt = local_tz.localize(dt)
+        return local_dt.strftime("%Y%m%dT%H%M%S")
+    except (ValueError, pytz.UnknownTimeZoneError):
         return None
 
 # Create ICS content
 ics_content = "BEGIN:VCALENDAR\nVERSION:2.0\n"
 
-for entry in data['calendar']:
-    date = entry['date']
-    for event in entry['events']:
-        start_datetime = format_datetime(date, event['start_time'])
-        end_datetime = format_datetime(date, event['end_time'])
-        if start_datetime and end_datetime:
-            ics_content += "BEGIN:VEVENT\n"
-            ics_content += f"SUMMARY:{event['title']}\n"
-            ics_content += f"DTSTART:{start_datetime}\n"
-            ics_content += f"DTEND:{end_datetime}\n"
-            ics_content += "END:VEVENT\n"
+for event in data['calendar']:
+    start_datetime = format_datetime(event['start']['dateTime'], event['start']['timeZone'])
+    end_datetime = format_datetime(event['end']['dateTime'], event['end']['timeZone'])
+    if start_datetime and end_datetime:
+        ics_content += "BEGIN:VEVENT\n"
+        ics_content += f"SUMMARY:{event['summary']}\n"
+        ics_content += f"DTSTART;TZID={event['start']['timeZone']}:{start_datetime}\n"
+        ics_content += f"DTEND;TZID={event['end']['timeZone']}:{end_datetime}\n"
+        ics_content += "END:VEVENT\n"
 
 ics_content += "END:VCALENDAR"
 
