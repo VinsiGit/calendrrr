@@ -1,5 +1,37 @@
 {
     "calendar": [
-
+        {
+            "summary": "Meeting with Client X",
+            "start": {
+                "dateTime": "2024-11-18T13:00:00",
+                "timeZone": "Europe/Brussels"
+            },
+            "end": {
+                "dateTime": "2024-11-18T18:00:00",
+                "timeZone": "Europe/Brussels"
+            }
+        },
+        {
+            "summary": "Meeting with Client X",
+            "start": {
+                "dateTime": "2024-11-20T14:00:00",
+                "timeZone": "Europe/Brussels"
+            },
+            "end": {
+                "dateTime": "2024-11-20T19:00:00",
+                "timeZone": "Europe/Brussels"
+            }
+        },
+        {
+            "summary": "Client X Meeting",
+            "start": {
+                "dateTime": "2024-11-19T14:00:00",
+                "timeZone": "Europe/Brussels"
+            },
+            "end": {
+                "dateTime": "2024-11-19T19:00:00",
+                "timeZone": "Europe/Brussels"
+            }
+        }
     ]
 }
