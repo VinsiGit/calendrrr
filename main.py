@@ -166,8 +166,8 @@ def add_single_event_local(date, title, start_time, end_time, file_path='databas
     end_datetime = f"{date}T{end_time}:00"
     event = {
         'summary': title,
-        'start': {'dateTime': start_datetime, 'timeZone': 'Etc/Greenwich'},
-        'end': {'dateTime': end_datetime, 'timeZone': 'Etc/Greenwich'},
+        'start': {'dateTime': start_datetime, 'timeZone': 'Europe/Brussels'},
+        'end': {'dateTime': end_datetime, 'timeZone': 'Europe/Brussels'},
     }
 
     date_exists = False
@@ -223,8 +223,8 @@ def add_single_google_event(service, date, title, start_time, end_time):
     end_datetime = f"{date}T{end_time}:00"
     event = {
         'summary': title,
-        'start': {'dateTime': start_datetime, 'timeZone': 'Etc/Greenwich'},
-        'end': {'dateTime': end_datetime, 'timeZone': 'Etc/Greenwich'},
+        'start': {'dateTime': start_datetime, 'timeZone': 'Europe/Brussels'},
+        'end': {'dateTime': end_datetime, 'timeZone': 'Europe/Brussels'},
     }
     event = service.events().insert(calendarId='primary', body=event).execute()
     print(f"Event created: {event.get('htmlLink')}")
@@ -235,8 +235,8 @@ def add_recurring_google_event(service, start_date, title, start_time, end_time,
     end_datetime = f"{start_date}T{end_time}:00"
     event = {
         'summary': title,
-        'start': {'dateTime': start_datetime, 'timeZone': 'Etc/Greenwich'},
-        'end': {'dateTime': end_datetime, 'timeZone': 'Etc/Greenwich'},
+        'start': {'dateTime': start_datetime, 'timeZone': 'Europe/Brussels'},
+        'end': {'dateTime': end_datetime, 'timeZone': 'Europe/Brussels'},
         'recurrence': [recurrence_rule],
     }
     created_event = service.events().insert(calendarId='primary', body=event).execute()
@@ -317,3 +317,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+# create a single event for 2 december 2024, from 17 till 18, meeting with my girlfriend.
+# create a recurring event starting from monday 25/11/2024, meeting with dog, from 17 till 18. every monday for the next 5 times.
