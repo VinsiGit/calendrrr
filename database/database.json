@@ -1,36 +1,4 @@
 {
     "calendar": [
-        {
-            "date": "2024-12-02",
-            "events": [
-                {
-                    "summary": "Meeting with my girlfriend",
-                    "start": {
-                        "dateTime": "2024-12-02T17:00:00",
-                        "timeZone": "Etc/Greenwich"
-                    },
-                    "end": {
-                        "dateTime": "2024-12-02T18:00:00",
-                        "timeZone": "Etc/Greenwich"
-                    }
-                }
-            ]
-        },
-        {
-            "date": "2024-11-25",
-            "events": [
-                {
-                    "summary": "Meeting with dog",
-                    "start": {
-                        "dateTime": "2024-11-25T17:00:00",
-                        "timeZone": "Etc/Greenwich"
-                    },
-                    "end": {
-                        "dateTime": "2024-11-25T18:00:00",
-                        "timeZone": "Etc/Greenwich"
-                    }
-                }
-            ]
-        }
     ]
 }
