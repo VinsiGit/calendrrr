@@ -2,6 +2,7 @@
 
 This project integrates Google Calendar with AI to help manage and schedule events efficiently.
 
+You need to get a credentials.json from google with this link:
 https://developers.google.com/calendar/api/quickstart/python
 
 
@@ -17,7 +18,7 @@ docker compose up
 
 Then, pull the required model:
 ```cmd
-docker exec -it ollama ollama pull llama3.2:3b
+docker exec -it ollama ollama pull llama3.1:8b
 ```
 
 Install the required Python packages:
@@ -42,4 +43,5 @@ The AI agent in this project uses the `Swarm` and `Agent` classes from the `swar
 
 The AI agent can be used to add both single and recurring events to the calendar. Below are examples of how to use the agent:
 
-
+- Create a single event for 2 december 2024, from 17 till 18, meeting with my girlfriend.
+- Create a recurring event starting from monday 25/11/2024, meeting with dog, from 17 till 18. every monday for the next 5 times.
