@@ -1,4 +1,6 @@
-# calendrrr
+# Calendrrr
+
+Made by Jurrean and Joshua.
 
 This project integrates Google Calendar with AI to help manage and schedule events efficiently.
 
